@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1f35">
+<meta name="description" content="A concept-level smart manufacturing proposal for non-destructive glass jar lid inspection: automated laser measurement versus human inspection.">
+<title>Solutions of Smart Manufacturing | Lid Inspection Proposal</title>
+<style>
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#132840;background:#f4f7f9;font-synthesis:none}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0}button,a{font:inherit}button{cursor:pointer}a{color:inherit}
+.shell{max-width:1220px;margin:auto;padding:0 30px}
+nav{height:76px;background:#0b1e32;color:#eef8fc;position:relative;z-index:2}
+.navinner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-size:15px;font-weight:800;letter-spacing:-.02em}
+.brandmark{height:29px;width:29px;border:2px solid #65e1cc;border-radius:9px;display:grid;place-items:center;color:#65e1cc;font-size:18px}
+.navlinks{display:flex;align-items:center;gap:23px;font-size:13px;color:#cad8e4}.navlinks a{text-decoration:none}.navlinks a:hover{color:#69dfcd}
+.hero{background:radial-gradient(ellipse at 77% 7%,#1f5470 0,#12334f 31%,#0b1e32 75%);color:#fff;overflow:hidden;position:relative}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(310px,.9fr);gap:35px;align-items:center;min-height:415px;padding-top:54px;padding-bottom:65px}
+.kicker{display:inline-flex;align-items:center;gap:9px;color:#7fe7d4;font-size:11px;letter-spacing:.21em;text-transform:uppercase;font-weight:800}
+.kicker:before{content:"";width:7px;height:7px;border-radius:50%;background:#7fe7d4;box-shadow:0 0 0 5px #7fe7d41c}
+h1{font-size:clamp(36px,4.65vw,62px);line-height:1.07;letter-spacing:-.045em;margin:24px 0 15px;max-width:730px}h1 em{font-style:normal;color:#7fe7d4}
+.herodesc{color:#bfd1de;font-size:15px;line-height:1.85;max-width:560px;margin:0 0 25px}
+.heroactions{display:flex;flex-wrap:wrap;gap:10px}.action{display:inline-flex;justify-content:center;align-items:center;gap:8px;padding:12px 17px;text-decoration:none;border-radius:10px;font-size:13px;font-weight:800}.primary{background:#66e0cd;color:#073544}.ghost{border:1px solid #618097;color:#dceaf3}
+.hero-art{background:#ffffff0a;border:1px solid #a4d0e333;border-radius:22px;padding:27px 22px 25px;box-shadow:0 22px 70px #0003;min-width:0}
+.arthead{display:flex;justify-content:space-between;align-items:center;gap:5px;margin-bottom:24px;font-size:11px;color:#9cb7cb;font-weight:700}.arthead b{color:#81dfcd;font-size:11px;border:1px solid #85e1cb77;padding:6px 9px;border-radius:50px}
+.process-svg{width:100%;height:auto;display:block}
+.artfoot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:21px}.artfoot div{padding:12px 9px;background:#ffffff09;border:1px solid #bdd5e11b;border-radius:10px;text-align:center}.artfoot strong{font-size:18px;display:block}.artfoot span{font-size:10px;color:#a9c1d0;display:block;margin-top:3px}
+main{padding:0 0 74px}.section{padding-top:66px}.sectiontop{display:flex;align-items:center;gap:15px;margin-bottom:19px}.sectionnum{font-size:12px;font-weight:900;color:#0d9186;border:1px solid #abdcd5;background:#dff6f2;padding:8px 10px;border-radius:9px}.sectiontop h2{font-size:clamp(25px,3.2vw,37px);letter-spacing:-.035em;margin:0}.leadin{font-size:15px;color:#536d81;line-height:1.8;max-width:900px;margin:4px 0 24px}
+.context{display:grid;grid-template-columns:1.05fr .95fr;gap:19px}
+.panel{border:1px solid #dce5eb;background:#fff;border-radius:17px;padding:26px;box-shadow:0 10px 26px #102f4410}.eyebrow{color:#0a9187;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.15em}.panel h3{font-size:19px;letter-spacing:-.025em;margin:12px 0;color:#14324c}.panel p{font-size:14px;color:#516a7d;line-height:1.78;margin:10px 0}.pillrow{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}.chip{background:#eff7f8;color:#25556b;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800}
+.scene-quote{background:#eaf7f5;border:1px solid #c9e9e4;border-radius:12px;padding:16px 18px;margin-top:16px;font-size:15px;color:#174a4b;font-weight:750;line-height:1.6}
+.expectlist{display:grid;gap:12px;margin-top:17px}.expect{display:flex;gap:13px;align-items:start}.iconbubble{flex:none;width:35px;height:35px;background:#e5f3f3;color:#087c77;border-radius:9px;display:grid;place-items:center;font-size:18px}.expect strong{display:block;font-size:13px;color:#1e3950}.expect span{font-size:12px;color:#60798b;line-height:1.6;display:block;margin-top:3px}
+.challenges{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.challenge{padding:25px 23px;border:1px solid #d8e3ea;border-radius:15px;background:#fff;min-height:216px;box-shadow:0 8px 20px #163a5110}.challenge .num{font-size:12px;color:#869fac;font-weight:850}.challenge h3{font-size:19px;letter-spacing:-.025em;margin:16px 0 10px}.challenge p{margin:0;font-size:13px;line-height:1.74;color:#607789}.challenge .highlight{color:#087f77}
+.warning{border-left:3px solid #dfad58;background:#fff8ee;padding:13px 17px;margin-top:16px;font-size:12px;line-height:1.7;color:#78572c;border-radius:0 8px 8px 0}
+.solutions{border:1px solid #dce5eb;background:#fff;border-radius:18px;box-shadow:0 10px 29px #173e4b0e;overflow:hidden}
+.tabs{display:grid;grid-template-columns:1fr 1fr;padding:9px;gap:8px;background:#eaf1f5;border-bottom:1px solid #d8e4eb}
+.tab{padding:17px 19px;background:transparent;text-align:left;border:1px solid transparent;border-radius:11px;transition:background .15s,border-color .15s;color:#516a7d;display:flex;align-items:center;gap:13px;min-width:0}
+.tab[aria-selected="true"]{background:#fff;border-color:#c8dedf;color:#183f50;box-shadow:0 5px 14px #172f4410}.tab:focus-visible,.action:focus-visible{outline:3px solid #1dbca9;outline-offset:2px}
+.tabicon{width:37px;height:37px;flex:none;border-radius:10px;background:#d5ebe9;display:grid;place-items:center;color:#11685e;font-size:17px}.tab b{display:block;font-size:14px}.tab small{font-size:11px;display:block;margin-top:4px;color:#718b9b}
+.solution-body{padding:27px}.solution-pane[hidden]{display:none}.solution-head{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;align-items:center}.solution-head h3{font-size:25px;margin:5px 0 9px;letter-spacing:-.03em}.solution-summary{font-size:14px;line-height:1.8;color:#566e81;max-width:900px;margin:0 0 20px}.statuspill{font-size:10px;font-weight:850;letter-spacing:.07em;border:1px solid #b8ddd3;color:#067b6b;background:#e7faf4;border-radius:80px;padding:9px 13px}
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:18px 0 22px}.stage{background:#f1f6f9;border:1px solid #e2eaef;border-radius:10px;padding:13px 12px;font-size:11px;font-weight:750;color:#2b5368;position:relative}.stage em{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#2b9689;margin-bottom:5px;font-style:normal}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:20px}.metric{border:1px solid #dce6e9;border-radius:10px;padding:15px 13px;background:#fbfdfd}.metric span{display:block;font-size:11px;color:#6c8494}.metric strong{display:block;font-size:18px;letter-spacing:-.02em;color:#17354c;margin-top:7px}.metric small{font-size:10px;color:#7b91a2;line-height:1.4;display:block;margin-top:6px}
+.embedded-header{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:22px 0 11px}.embedded-header h4{margin:0;font-size:15px}.embedded-header a{font-size:12px;color:#087f79;text-underline-offset:3px}.preview{border:1px solid #244052;border-radius:15px;overflow:hidden;background:#0a1523}.demo-iframe{display:block;width:100%;height:790px;border:0;background:#0a1523}.iframe-note{font-size:11px;color:#667f8b;margin:10px 0 0;line-height:1.65}.proof{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:21px}.proofbox{background:#f8fafb;padding:18px;border:1px solid #e2ebef;border-radius:11px}.proofbox strong{font-size:12px;color:#214054;display:block;margin-bottom:8px}.proofbox p{font-size:12px;color:#587184;line-height:1.7;margin:0}
+.comparison{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}.compare{padding:18px;border:1px solid #dbe5eb;border-radius:12px;background:#f8fbfc}.compare strong{font-size:13px}.compare p{font-size:12px;color:#678092;line-height:1.7;margin:7px 0 0}
+.footer{font-size:12px;color:#6a8495;line-height:1.7;margin-top:40px;padding-top:20px;border-top:1px solid #d4e1e7}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;min-height:0}.hero-art{max-width:630px}.context{grid-template-columns:1fr}.challenges{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.demo-iframe{height:740px}}
+@media(max-width:580px){.shell{padding:0 16px}nav{height:62px}.navlinks{gap:11px;font-size:11px}.navlinks a:first-child{display:none}.brand{font-size:12px}.hero-grid{padding-top:42px;padding-bottom:48px}.hero-art{padding:15px}.artfoot strong{font-size:15px}h1{font-size:39px}.section{padding-top:48px}.panel{padding:21px}.challenges{grid-template-columns:1fr}.tabs{grid-template-columns:1fr}.solution-body{padding:16px}.pipeline{grid-template-columns:1fr 1fr}.metrics{grid-template-columns:1fr 1fr}.metric{padding:11px}.metric strong{font-size:15px}.proof,.comparison{grid-template-columns:1fr}.demo-iframe{height:700px}.embedded-header{align-items:start;flex-direction:column;gap:5px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="shell navinner"><a class="brand" href="#home"><span class="brandmark">⌑</span> SMART MANUFACTURING LAB</a><div class="navlinks"><a href="#scenario">Scenario</a><a href="#challenges">Challenges</a><a href="#solutions">Solutions ↗</a></div></div></nav>
+<header id="home" class="hero"><div class="shell hero-grid"><div>
+<div class="kicker">Engineering feasibility proposal</div>
+<h1>Solutions of<br><em>Smart Manufacturing.</em></h1>
+<p class="herodesc">A system architecture proposal for safer, scalable glass-jar lid inspection. Two distinct approaches—automated laser measurement and operator-led screening—evaluated against the same customer challenge.</p>
+<div class="heroactions"><a class="action primary" href="#solutions">Explore the solutions ↗</a><a class="action ghost" href="#scenario">Understand the brief ↓</a></div>
+</div><div class="hero-art" aria-label="Illustration of jar lid inspection workflow">
+<div class="arthead"><span>REFERENCE PROCESS MODEL</span><b>CONCEPT STAGE</b></div>
+<svg class="process-svg" viewBox="0 0 444 182" role="img" aria-label="Jars move from sealing to inspection before passing or being rejected">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#65d6cb" stop-opacity=".7"/><stop offset="1" stop-color="#3e98ad" stop-opacity=".25"/></linearGradient></defs>
+<path d="M21 132H425" stroke="#698a9c" stroke-width="21" stroke-linecap="round" opacity=".65"/>
+<path d="M21 132H425" stroke="#86a6b5" stroke-dasharray="6 17" stroke-width="3"/>
+<g fill="url(#g)" stroke="#7fe7d4" stroke-width="2"><rect x="51" y="87" width="42" height="48" rx="8"/><rect x="146" y="87" width="42" height="48" rx="8"/><rect x="244" y="87" width="42" height="48" rx="8"/><rect x="341" y="87" width="42" height="48" rx="8"/></g>
+<g fill="#e8b786"><rect x="58" y="78" width="28" height="10" rx="3"/><rect x="153" y="78" width="28" height="10" rx="3"/><rect x="251" y="78" width="28" height="10" rx="3"/><rect x="348" y="78" width="28" height="10" rx="3"/></g>
+<path d="M167 20V72" stroke="#73f6e5" stroke-width="2.5" stroke-dasharray="5 6"/><rect x="124" y="7" width="87" height="26" rx="7" fill="#e1f6fc"/><text x="168" y="24" text-anchor="middle" fill="#153c53" font-size="11" font-weight="700">INSPECT</text>
+<path d="M266 140V166" stroke="#feacac" stroke-width="3"/><path d="M266 166L260 157M266 166L272 157" stroke="#feacac" stroke-width="2.5"/><text x="283" y="168" fill="#ffb4b8" font-size="11">REJECT</text>
+<path d="M397 58h27m-7-6 7 6-7 6" stroke="#8de5c4" fill="none" stroke-width="2.5"/><text x="398" y="49" fill="#91e7c5" font-size="12">PASS</text>
+</svg>
+<div class="artfoot"><div><strong>27–110</strong><span>Lid diameter · mm</span></div><div><strong>2</strong><span>Solution routes</span></div><div><strong>Safety</strong><span>Priority driver</span></div></div>
+</div></div></header>
+<main class="shell">
+<section id="scenario" class="section"><div class="sectiontop"><span class="sectionnum">01</span><h2>Project Scenario</h2></div>
+<p class="leadin">We are acting as professional system architects, tasked by a demanding food-packaging customer to propose a credible inspection machine—and to defend its feasibility to an industry-experienced decision maker.</p>
+<div class="context"><article class="panel"><span class="eyebrow">The customer commission</span><h3>A reliable inspection concept for metal-lid glass jars</h3>
+<p>Our customer packages food in glass jars with metal lids. They want a system that assesses whether the closure meets its sealing requirements and <b>removes inadequately sealed jars from the production line</b> before they reach the next process.</p>
+<div class="scene-quote">“How can you verify sealing quality, handle different lid sizes, reject defective jars, and still make the solution commercially viable?”</div>
+<div class="pillrow"><span class="chip">Food safety first</span><span class="chip">Reliable classification</span><span class="chip">Automatic or manual sorting</span><span class="chip">Commercial rationale</span></div>
+</article><article class="panel"><span class="eyebrow">What we must demonstrate</span><h3>A proposal that stands up to technical scrutiny</h3>
+<div class="expectlist">
+<div class="expect"><div class="iconbubble">◎</div><div><strong>Clear technical architecture</strong><span>Explain the measurement or inspection principle, decision method, and reject handling.</span></div></div>
+<div class="expect"><div class="iconbubble">▤</div><div><strong>Evidence-based specifications</strong><span>Distinguish customer requirements, manufacturer reference values, and unvalidated assumptions.</span></div></div>
+<div class="expect"><div class="iconbubble">↗</div><div><strong>Operational integration</strong><span>Show how conveyors, guide rails, worker safety and sorting fit together.</span></div></div>
+<div class="expect"><div class="iconbubble">€</div><div><strong>Commercial justification</strong><span>Outline labor and equipment trade-offs and the questions needed for an ROI study.</span></div></div>
+</div></article></div></section>
+<section id="challenges" class="section"><div class="sectiontop"><span class="sectionnum">02</span><h2>Current Challenges</h2></div>
+<p class="leadin">The current quality-control challenge is not just to measure a lid—it is to make the right sorting decision consistently, across multiple jar configurations, without weakening food-safety controls.</p>
+<div class="challenges">
+<article class="challenge"><span class="num">CHALLENGE 01 / QUALITY</span><h3>Food-safety exposure</h3><p>An improperly sealed lid can compromise product integrity. A <span class="highlight">false pass</span> may allow an unsafe or suspect jar to continue downstream, making inspection sensitivity and reject reliability critical.</p></article>
+<article class="challenge"><span class="num">CHALLENGE 02 / COMPATIBILITY</span><h3>Multiple lid diameters</h3><p>The customer uses metal lids from <span class="highlight">27 mm to 110 mm</span> in diameter. Lid geometry, stiffness and deformation behavior can vary, so the same threshold may not work for every SKU.</p></article>
+<article class="challenge"><span class="num">CHALLENGE 03 / MANUFACTURING</span><h3>Stable on-line decisions</h3><p>Conveyor speed, jar stability, operator repeatability and reliable rejection all affect practical feasibility. The proposed design must align inspection, sorting and operating cost.</p></article>
+</div><div class="warning"><strong>Important engineering distinction:</strong> Lid deflection and a manual “BOO” response are <em>indirect indicators</em> of closure condition, not direct proof of seal integrity. Both approaches require experiments with known-good and known-defective samples before production claims can be made.</div></section>
+<section id="solutions" class="section"><div class="sectiontop"><span class="sectionnum">03</span><h2>Our Solutions</h2></div><p class="leadin">Select a proposed plan to inspect its engineering concept, reference specifications and live interactive animation. Both demos are embedded live from our earlier GitHub Pages projects, so updates to the original sites also appear here.</p>
+<div class="solutions"><div class="tabs" role="tablist" aria-label="Solution plans">
+<button class="tab" type="button" id="tab-a" role="tab" aria-selected="true" aria-controls="pane-a" tabindex="0"><span class="tabicon">✦</span><span><b>PLAN A · Automated laser inspection</b><small>Non-contact sensing + pneumatic sorting</small></span></button>
+<button class="tab" type="button" id="tab-b" role="tab" aria-selected="false" aria-controls="pane-b" tabindex="-1"><span class="tabicon">♧</span><span><b>PLAN B · Labor intelligence</b><small>Manual lid press + operator-based sorting</small></span></button>
+</div>
+<div class="solution-body">
+<div class="solution-pane" id="pane-a" role="tabpanel" aria-labelledby="tab-a"><div class="solution-head"><div><span class="eyebrow">Precision-oriented automation</span><h3>Plan A — Laser Lid Inspection</h3></div><span class="statuspill">AUTOMATED CONCEPT</span></div>
+<p class="solution-summary">Measure metal-lid displacement using <strong>laser triangulation</strong>; process the measurement to classify each jar; and activate a <strong>pneumatic pusher</strong> to divert a flagged jar into a reject area. The production line includes side guide rails to reduce tipping and an operator who supervises system operation.</p>
+<div class="pipeline"><div class="stage"><em>01 · Detect</em>Laser triangulation</div><div class="stage"><em>02 · Decide</em>Threshold / classification</div><div class="stage"><em>03 · Reject</em>Pneumatic pusher</div><div class="stage"><em>04 · Supervise</em>Operator monitoring</div></div>
+<div class="metrics"><div class="metric"><span>Customer lid range</span><strong>27–110 mm</strong><small>Plan A design reference: 25–110 mm; must be qualified</small></div><div class="metric"><span>Laser safety class</span><strong>Class 2</strong><small>Guarding and safe access required</small></div><div class="metric"><span>Reference accuracy</span><strong>9 μm</strong><small>Unverified measurement reference</small></div><div class="metric"><span>Reference throughput</span><strong>1,200/min</strong><small>Not a validated line rate</small></div></div>
+<div class="embedded-header"><h4>Interactive automation demonstration</h4><a href="https://dannie0210.github.io/laser-lid-inspection/" target="_blank" rel="noopener noreferrer">Open original Plan A ↗</a></div>
+<div class="preview"><iframe id="demo-a" class="demo-iframe" title="Plan A interactive laser lid inspection demonstration" loading="lazy" src="https://dannie0210.github.io/laser-lid-inspection/"></iframe></div>
+<p class="iframe-note">Explore the full demo inside this panel. If the embedded view is too small on mobile, use the “Open original Plan A” link. The referenced distance (150–250 mm), accuracy and speed values are study benchmarks—not proven production performance.</p>
+<div class="proof"><div class="proofbox"><strong>Why this plan can meet the brief</strong><p>A non-contact sensor and PLC-based reject logic offer a path to repeatable, traceable screening over multiple lid formats. Product-specific settings and actual defect-detection performance still need validation.</p></div><div class="proofbox"><strong>What must be demonstrated</strong><p>Measurable height separation between good/bad seals; calibration by lid size; transport stability; false-pass/false-reject rates; pneumatic response timing; and capital/operating cost.</p></div></div>
+</div>
+<div class="solution-pane" id="pane-b" role="tabpanel" aria-labelledby="tab-b" hidden><div class="solution-head"><div><span class="eyebrow">People-centered inspection</span><h3>Plan B — Labor intelligence</h3></div><span class="statuspill">MANUAL CONCEPT</span></div>
+<p class="solution-summary">Assign <strong>one student operator to each conveyor line</strong>. The operator presses a metal lid, listening or feeling for a characteristic <strong>“BOO”</strong> response; a flagged jar is manually pushed into the nearby reject area. The demo lets you add operators and conveyor lines (up to 22) and introduce good or defective jars.</p>
+<div class="pipeline"><div class="stage"><em>01 · Transport</em>One operator per line</div><div class="stage"><em>02 · Inspect</em>Manual lid press</div><div class="stage"><em>03 · Reject</em>Local reject bin</div><div class="stage"><em>04 · Scale</em>Add operator + line</div></div>
+<div class="metrics"><div class="metric"><span>Initial team</span><strong>2 interns</strong><small>Two independent lines</small></div><div class="metric"><span>Stipend / person</span><strong>€400/mo</strong><small>32 hours/week assumed</small></div><div class="metric"><span>Planning budget</span><strong>€110,000</strong><small>Annual stipend-only comparison</small></div><div class="metric"><span>Budget-based limit</span><strong>22 people</strong><small>€105,600 annual stipends</small></div></div>
+<div class="embedded-header"><h4>Interactive operator and cost demonstration</h4><a href="https://dannie0210.github.io/labor-intelligent/" target="_blank" rel="noopener noreferrer">Open original Plan B ↗</a></div>
+<div class="preview"><iframe id="demo-b" class="demo-iframe" title="Plan B interactive student operator inspection and cost simulation" loading="lazy" data-src="https://dannie0210.github.io/labor-intelligent/"></iframe></div>
+<p class="iframe-note">The demo starts with two operators; adding a person also adds a production line and €400/month to stipend cost. At 22 operators, annual stipend cost is €105,600, leaving €4,400 before other expenses. Use the link above for a larger mobile view.</p>
+<div class="proof"><div class="proofbox"><strong>Why this plan may be attractive</strong><p>It offers a simple conceptual process, visual quality checking and a labor-cost model that scales by operator count, without assuming an automated laser inspection machine is already available.</p></div><div class="proofbox"><strong>What must be demonstrated</strong><p>Operator-to-operator consistency, acoustic/physical defect correlation, feasible jar throughput, fatigue effects, supervision, applicable internship rules and the true fully loaded cost.</p></div></div>
+</div>
+</div></div>
+<div class="comparison"><div class="compare"><strong>Decision focus · Plan A</strong><p>More automation and instrumentation, but higher technical-integration demands. Key proof: seal-classification performance across 27–110 mm lid sizes.</p></div><div class="compare"><strong>Decision focus · Plan B</strong><p>Simple manual workflow with staffing expenses and productivity constraints. Key proof: repeatable detection and safe handling over a shift.</p></div></div>
+</section>
+<footer class="footer">Solutions of Smart Manufacturing · Concept and feasibility presentation. Performance numbers and animations illustrate proposed architectures; they are not certified test results, food-safety guarantees or verified production speeds.</footer>
+</main>
+<script>
+(function(){
+const tabs=[document.getElementById('tab-a'),document.getElementById('tab-b')];
+const panes=[document.getElementById('pane-a'),document.getElementById('pane-b')];
+function activate(index,focus){
+ tabs.forEach((t,i)=>{const chosen=i===index;t.setAttribute('aria-selected',String(chosen));t.tabIndex=chosen?0:-1;panes[i].hidden=!chosen;});
+ if(index===1){const frame=document.getElementById('demo-b');if(!frame.getAttribute('src'))frame.setAttribute('src',frame.dataset.src);}
+ if(focus) tabs[index].focus();
+}
+tabs.forEach((tab,i)=>{tab.addEventListener('click',()=>activate(i,false));tab.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();activate((i+(e.key==='ArrowRight'?1:1))%2,true);}else if(e.key==='Home'){e.preventDefault();activate(0,true);}else if(e.key==='End'){e.preventDefault();activate(1,true);}});});
+const requested = new URLSearchParams(window.location.search).get('plan');if(requested==='b')activate(1,false);
+})();
+</script>
+</body>
+</html>
